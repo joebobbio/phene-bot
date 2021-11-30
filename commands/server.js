@@ -8,14 +8,16 @@ module.exports={
             const guildEmbed=new MessageEmbed()
             .setAuthor(interaction.guild.name, interaction.guild.iconURL())
             .setThumbnail(interaction.guild.iconURL())
-            .addField("Server owner", `<@!${interaction.guild.ownerId}>`, true)
-            .addField("Member count", `${interaction.guild.memberCount}`, true)
-            .addField("Role count", `${interaction.guild.roles.cache.size}`, true)
-            .addField("Channel count", `${interaction.guild.channels.cache.size}`, true)
-            .addField("Emoji count", `${interaction.guild.emojis.cache.size}`, true)
-            .addField("Created at", `${interaction.guild.createdAt.toLocaleString()}`, true)
-            .addField("Verification level", `${interaction.guild.verificationLevel.toLowerCase()}`, true)
-            .addField("ID", `${interaction.guild.id}`, true)
+            .addFields(
+                {name:"Server owner",value:`<@!${interaction.guild.ownerId}>`,inline:true},
+                {name:"Member count",value:`${interaction.guild.memberCount}`,inline:true},
+                {name:"Role count",value:`${interaction.guild.roles.cache.size}`,inline:true},
+                {name:"Channel count",value:`${interaction.guild.channels.cache.size}`,inline:true},
+                {name:"Emoji count",value:`${interaction.guild.emojis.cache.size}`,inline:true},
+                {name:"Created at",value:`${interaction.guild.createdAt.toLocaleString()}`,inline:true},
+                {name:"Verification level",value:`${interaction.guild.verificationLevel.toLowerCase()}`,inline:true},
+                {name:"ID",value:`${interaction.guild.id}`,inline:true}
+            )
             .setColor("RANDOM")
             await interaction.reply({embeds:[guildEmbed]})   
         }else{
