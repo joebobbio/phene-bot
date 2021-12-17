@@ -4,7 +4,10 @@
   "description": "phene (testing)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy-commands": "node deploy-commands.js",
+    "deploy-global-commands": "node deploy-commands-global.js"
   },
   "author": "phene",
   "license": "ISC",

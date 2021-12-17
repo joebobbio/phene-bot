@@ -1,5 +1,5 @@
 const{SlashCommandBuilder}=require('@discordjs/builders')
-const{MessageEmbed, client}=require('discord.js')
+const{MessageEmbed, client, Message, MessageSelectMenu}=require('discord.js')
 
 module.exports={
     data:new SlashCommandBuilder().setName('ping').setDescription('Measures the bot\'s latency'),
@@ -10,6 +10,7 @@ module.exports={
         .setColor('RANDOM')
         .addField(`Round trip latency`,`${sent.createdTimestamp - interaction.createdTimestamp}ms`)
         .setTimestamp()
-        interaction.editReply({embeds:[pingEmbed]})
+        .setFooter(`Requested by ${interaction.user.tag}`)
+        interaction.editReply({content:`\u200b`,embeds:[pingEmbed]})
     }
 }
