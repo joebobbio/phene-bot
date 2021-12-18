@@ -7,7 +7,7 @@ module.exports={
     .setName('info')
     .setDescription('Shows info about the bot'),
     async execute(interaction){
-        const{totalMemMb,usedMemMb}=await mem.info
+        const{totalMemMb,usedMemMb}=await mem.info()
         const statEmbed = new MessageEmbed()
         .setTitle('Bot statistics')
         .addFields(
