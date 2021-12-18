@@ -11,5 +11,5 @@ client.on('interactionCreate',async interaction=>{
     if(!interaction.isCommand()) return
     const command=client.commands.get(interaction.commandName)
     if(!command)return
-    try{await command.execute(interaction)}catch(error){console.error(error);await interaction.reply({content:'Whoops! Something went wrong when executing that... Try again. Or maybe [report a bug](https://github.com/joebobbio/phene-bot/issues/new/choose)?', ephemeral:true})}})
+    try{await command.execute(interaction);console.log(`${interaction.user.tag} (ID: ${interaction.user.id}) ran the ${interaction.commandName} command`)}catch(error){console.error(error);await interaction.reply({content:'Whoops! Something went wrong when executing that... Try again. Or maybe [report a bug](https://github.com/joebobbio/phene-bot/issues/new/choose)?', ephemeral:true})}})
 client.login(token)

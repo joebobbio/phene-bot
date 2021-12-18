@@ -7,7 +7,7 @@ module.exports={
         const sent = await interaction.reply({content:"Ping?",fetchReply:true})
         const pingEmbed = new MessageEmbed()
         .setTitle('Pong!')
-        .setColor('RANDOM')
+        .setColor('#24ABF2')
         .addField(`Round trip latency`,`${sent.createdTimestamp - interaction.createdTimestamp}ms`)
         .setTimestamp()
         .setFooter(`Requested by ${interaction.user.tag}`)

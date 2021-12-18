@@ -9,7 +9,7 @@ module.exports={
             return avatar.displayAvatarURL(format?{format:format,...options}:{dynamic:true,...options})
         }
 
-        let avatar = interaction.options.get('user').user || interaction.user
+        let avatar = interaction.options.get('user')?.user || interaction.user
         const avatarEmbed = new MessageEmbed()
         .setTitle(`${avatar.username}'s avatar`)
         .addFields(
@@ -18,6 +18,7 @@ module.exports={
             {name:"\u200b",value:`[WebP](${getAv(avatar, "webp")})`,inline:true}
         )
         .setImage(getAv(avatar))
+        .setColor('#24ABF2')
         await interaction.reply({embeds:[avatarEmbed]})
     }
 }
