@@ -13,7 +13,7 @@ module.exports={
         .addFields(
             {name:'Server OS',value:`${await os.oos()}`,inline:true},
             {name:'CPU cores',value:`${cpu.count()}`,inline:true},
-            {name:'CPU usage',value:`${await cpu.usage()}`,inline:true},
+            {name:'CPU usage',value:`${await cpu.usage()}%`,inline:true},
             {name:'RAM usage',value:`${usedMemMb} MB/${totalMemMb} MB`}
         )
         .setColor('#24ABF2')
