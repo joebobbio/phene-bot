@@ -27,6 +27,6 @@ module.exports={
         }
         await user.send(`You were banned from ${interaction.guild.name} for ${reason!==null?`${reason}`:'No reason specified.'}.`).catch(()=>null)
         await user.ban({reason:reason!==null?`${interaction.user.tag} - ${reason}`:`${interaction.user.tag} - No reason specified.`})
-        await interaction.reply(`${user.user.username} has been banned for ${reason!==null?`${reason}`:'No reason specified.'}`)
+        await interaction.reply(`\`${user.user.username} (ID: ${user.user.id})\` has been banned for \`${reason!==null?`${reason}`:'No reason specified.'}\``)
     }
 }

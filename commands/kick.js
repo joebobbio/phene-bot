@@ -29,6 +29,6 @@ module.exports={
         }
         await user.send(`You were kicked from \`${interaction.guild.name}\` for \`${reason!==null?`${reason}`:'No reason specified.'}\``).catch(()=>null)
         await user.kick({reason:reason!==null?`${interaction.user.tag} - ${reason}`:`${interaction.user.tag} - No reason specified.`})
-        await interaction.reply({content:`\`${interaction.user.tag}\` has been kicked for \`${reason!==null?`${reason}`:'No reason specified.'}\``})
+        await interaction.reply({content:`\`${user.user.tag}\` has been kicked for \`${reason!==null?`${reason}`:'No reason specified.'}\``})
     }
 }
