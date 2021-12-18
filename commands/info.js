@@ -14,7 +14,7 @@ module.exports={
             {name:'Server OS',value:`${await os.oos()}`,inline:true},
             {name:'CPU cores',value:`${cpu.count()}`,inline:true},
             {name:'CPU usage',value:`${await cpu.usage()}%`,inline:true},
-            {name:'RAM usage',value:`${usedMemMb} MB/${totalMemMb} MB`}
+            {name:'RAM usage',value:`${Math.round(usedMemMb)} MB/${Math.round(totalMemMb)} MB`}
         )
         .setColor('#24ABF2')
         await interaction.reply({embeds:[statEmbed]})
