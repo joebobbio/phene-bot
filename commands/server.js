@@ -4,7 +4,9 @@ const{MessageEmbed}=require('discord.js')
 module.exports={
     data:new SlashCommandBuilder().setName('server').setDescription('Server info'),
     async execute(interaction){
-            if(interaction.guild.available){
+            if(!interaction.guild?.available){
+                await interaction.reply(`The server you requested is not available, either because this command was executed outside of a server, or there is a server outage happening.`)  
+            }
             const guildEmbed=new MessageEmbed()
             .setAuthor(interaction.guild.name, interaction.guild.iconURL())
             .setThumbnail(interaction.guild.iconURL())
@@ -20,8 +22,5 @@ module.exports={
             )
             .setColor("RANDOM")
             await interaction.reply({embeds:[guildEmbed]})   
-        }else{
-            await interaction.reply(`The server you requested is not available, either because this command was executed outside of a server, or there is a server outage happening.`)
-        }
     }
 }
